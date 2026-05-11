@@ -532,99 +532,89 @@ const Home = () => {
           </div>
         </div>
       </motion.section>
-
-      {/* CTA Section */}
-      <motion.section 
-        className="cta"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
+{/* CTA Section */}
+<motion.section 
+  className="cta"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, margin: "-100px" }}
+  variants={fadeInUp}
+>
+  <div className="container">
+    <motion.div className="cta-content" variants={staggerChildren}>
+      <motion.h2 variants={fadeInUp}>Ready to Ace Your Exams?</motion.h2>
+      <motion.p variants={fadeInUp}>
+        Join thousands of students who are already using StudyMatePlus for
+        their exam preparation.
+      </motion.p>
+      <motion.div 
+        className="cta-buttons" 
+        variants={staggerChildrenFast}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "1rem",
+          flexWrap: "wrap",
+          marginTop: "2rem",
+        }}
       >
-        <div className="container">
-          <motion.div className="cta-content" variants={staggerChildren}>
-            <motion.h2 variants={fadeInUp}>Ready to Ace Your Exams?</motion.h2>
-            <motion.p variants={fadeInUp}>
-              Join thousands of students who are already using StudyMatePlus for
-              their exam preparation.
-            </motion.p>
-            <motion.div className="cta-buttons" variants={staggerChildrenFast}>
-              <motion.div variants={scaleIn}>
-                <Link to="/syllabus" className="btn btn-primary">
-                  <motion.span
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Get Started
-                  </motion.span>
-                </Link>
-              </motion.div>
-              <motion.div variants={scaleIn}>
-                <Link to="/about" className="btn btn-primary">
-                  <motion.span
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Learn More
-                  </motion.span>
-                </Link>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
+        <motion.div 
+          variants={scaleIn}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <Link 
+            to="/syllabus" 
+            className="btn btn-primary"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "0.75rem 2rem",
+              minWidth: "150px",
+              borderRadius: "8px",
+              fontWeight: "600",
+              fontSize: "1rem",
+              textDecoration: "none",
+              transition: "background 0.3s ease, box-shadow 0.3s ease",
+            }}
+          >
+            Get Started
+          </Link>
+        </motion.div>
 
-      {/* Contributors Section */}
-      <motion.section 
-        className="contributors"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-      >
-        <div className="container">
-          <motion.h2 className="section-title" variants={fadeInUp}>
-            Our Contributors
-          </motion.h2>
-          <motion.div className="contributors-grid" variants={staggerChildren}>
-            <AnimatePresence>
-              {contributors.map((contributor, index) => (
-                <motion.a
-                  key={contributor.id}
-                  href={contributor.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contributor-card"
-                  variants={scaleIn}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -5,
-                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <motion.img 
-                    src={contributor.avatar_url} 
-                    alt={contributor.login}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  />
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 + 0.2 }}
-                  >
-                    {contributor.login}
-                  </motion.p>
-                </motion.a>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-      </motion.section>
+        <motion.div 
+          variants={scaleIn}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <Link 
+            to="/about" 
+            className="btn btn-secondary"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "0.75rem 2rem",
+              minWidth: "150px",
+              borderRadius: "8px",
+              fontWeight: "600",
+              fontSize: "1rem",
+              textDecoration: "none",
+              transition: "background 0.3s ease, box-shadow 0.3s ease",
+            }}
+          >
+            Learn More
+          </Link>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  </div>
+</motion.section>
 
       {/* Footer */}
       <motion.footer 
